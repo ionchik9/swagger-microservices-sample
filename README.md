@@ -1,5 +1,6 @@
 # swagger-microservices-sample
 A consolidated Swagger service for a microservices-based system.
+Full story: https://medium.com/@ion.ionets/spring-cloud-microservices-api-documentation-bf7b4af01eb
 
 ## Architecture
 The system sample consists of the following modules:
