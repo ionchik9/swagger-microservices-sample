@@ -16,22 +16,32 @@ import javax.validation.Valid;
 @RequestMapping(value = "api/v1/auth")
 public class AuthController {
 
-
     @PostMapping("/login")
     public AuthResponse signin(@Valid @RequestBody LoginRequest loginRequest) {
-        return AuthResponse.builder().build();
+        return AuthResponse
+                .builder()
+                .access_token("verySecureToken")
+                .refresh_token("evenMoreSecureToken_0_o")
+                .token_type("bearer")
+                .expires_in(300)
+                .refresh_expires_in(1800)
+                .build();
     }
 
     @PostMapping("/refresh")
     public AuthResponse refresh(@Valid @RequestBody RefreshToken refreshToken) {
-        return AuthResponse.builder().build();
+        return AuthResponse
+                .builder()
+                .access_token("youdBetterBeSecured")
+                .refresh_token("HopeItsEvenMoreSecureToken")
+                .token_type("bearer")
+                .expires_in(300)
+                .refresh_expires_in(1800)
+                .build();
     }
 
     @PostMapping("/logout")
     public ResponseEntity logout(@Valid @RequestBody RefreshToken refreshToken) {
         return ResponseEntity.ok("logged out");
     }
-
-
-
 }
