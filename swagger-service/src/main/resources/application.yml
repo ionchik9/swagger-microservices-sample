@@ -1,0 +1,12 @@
+server:
+  port: 9132
+spring:
+  application:
+    name: swagger-server
+  cloud:
+    kubernetes:
+      enabled: false
+service:
+  json-url: /api/v1/servicename/api-doc
+  version: 2.0
+  api-gateway-public-url: http://localhost:8081

@@ -1,0 +1,24 @@
+server:
+  port: 8989
+spring:
+  application:
+    name: profiles
+  cloud:
+    kubernetes:
+      enabled: false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        cache.use_second_level_cache: true
+        cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+        cache.queries: true
+springfox.documentation.swagger.v2:
+  path: /api/v1/profiles/api-doc
+logging:
+  level:
+    com.agenatech: DEBUG
+

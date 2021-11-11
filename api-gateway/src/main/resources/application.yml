@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    kubernetes:
+      enabled: false
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: profiles
+          uri: lb://profiles
+          predicates:
+            - Path=/api/v1/profiles/**
+        - id: auth-client
+          uri: lb://auth-client
+          predicates:
+            - Path=/api/v1/auth/**, /api/v1/auth-client/**
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
+springdoc:
+  packagesToScan: com.agenatech
